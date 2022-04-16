@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Document</title>
+ 
+</head>
+<body>
+   <p> File size is {{size}}</p>
+   <p> {{total_malicious}} Engines found the file to be malicious</p>
+   <p> {{total_undetected}} Engines did not detect any malware on the file</p>
+   <p> Md5 {{md5}}</p>
+   <p> sha256 {{sha256}}</p>
+   <p> sha1 {{sha1}}</p>
+   <p> SSDEEP {{ssdeep}}</p>
+   </p>
+   {% for display in displayed %}
+      <p>{{display}}</p>
+   {% endfor %}
+
+   <table class="table table-striped table-dark">
+      <thead>
+      <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Point</th>
+      </tr>
+      </thead>
+      <tbody>
+      {% for data in display %}
+      <tr>
+          <th scope="row">{{ data[0] }}</th>
+          <td>{{ data[1] }}</td>
+          <td>{{ data[2] }}</td>
+      </tr>
+      {% endfor %}
+      </tbody>
+  </table>
+   
+</body>
+</html>
